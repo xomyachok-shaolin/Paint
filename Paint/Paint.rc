@@ -1,0 +1,78 @@
+#include "resource.h"
+#define APSTUDIO_READONLY_SYMBOLS
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+#include "resource.h"
+#undef APSTUDIO_READONLY_SYMBOLS
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+#ifdef _WIN32
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+#endif
+IDI_PAINT	ICON	"PAINT.ico"
+IDI_SMALL	ICON	"SMALL.ico"
+IDI_BM1		ICON	"BM1.ico"
+IDI_BM2		ICON	"BM2.ico"
+IDI_CAN		ICON	"CAN.ico"
+IDI_CLR		ICON	"CLR.ico"
+IDI_CLW		ICON	"CLW.ico"
+IDI_CT1		ICON	"CT1.ico"
+IDI_CT2		ICON	"CT2.ico"
+IDI_CT3		ICON	"CT3.ico"
+IDI_CT4		ICON	"CT4.ico"
+IDI_CT5		ICON	"CT5.ico"
+IDI_CT6		ICON	"CT6.ico"
+IDI_CT7		ICON	"CT7.ico"
+IDI_EC1		ICON	"EC1.ico"
+IDI_EC2		ICON	"EC2.ico"
+IDI_EC3		ICON	"EC3.ico"
+IDI_HS1		ICON	"HS1.ico"
+IDI_HS2		ICON	"HS2.ico"
+IDI_HS3		ICON	"HS3.ico"
+IDI_HS4		ICON	"HS4.ico"
+IDI_HS5		ICON	"HS5.ico"
+IDI_HS6		ICON	"HS6.ico"
+IDI_HS7		ICON	"HS7.ico"
+IDI_JS1		ICON	"JS1.ico"
+IDI_JS2		ICON	"JS2.ico"
+IDI_JS3		ICON	"JS3.ico"
+IDI_LS1		ICON	"LS1.ico"
+IDI_LS2		ICON	"LS2.ico"
+IDI_LS3		ICON	"LS3.ico"
+IDI_LS4		ICON	"LS4.ico"
+IDI_PS1		ICON	"PS1.ico"
+IDI_PS2		ICON	"PS2.ico"
+IDI_PS3		ICON	"PS3.ico"
+IDI_PT1		ICON	"PT1.ico"
+IDI_PT2		ICON	"PT2.ico"
+#ifdef APSTUDIO_INVOKED
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+#endif
+#endif
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif
+#ifdef APSTUDIO_INVOKED
+2 TEXTINCLUDE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""resource.h""\r\n"
+    "\0"
+END
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+#endif
+#endif
+#ifndef APSTUDIO_INVOKED
+#endif
