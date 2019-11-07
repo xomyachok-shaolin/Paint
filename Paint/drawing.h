@@ -202,8 +202,92 @@ void DrawOval(short X1, short Y1, short X2, short Y2) {
 
 /* рисует прямую по алгоритму Брезенхейма */
 void DrawBrez(short X1, short Y1, short X2, short Y2) {
+	ImageRestore();
+
+	COLORREF color;
+	if (mouse_down == WM_LBUTTONDOWN)
+		color = fore_color;
+	else
+		color = back_color;
+
+	int DX, DY, X, Y, D, D1, D2, SX, SY;
+	DX = abs(X2 - X1);	DY = abs(Y2 - Y1);
+	if (X1 < X2) SX = 1; else SX = -1;
+	if (Y1 < Y2) SY = 1; else SY = -1;
+	X = X1;	Y = Y1;
+	SetPixel(CDC, X, Y, color);
+	if (DY > DX) {
+		D1 = DX + DX;
+		D = D1 - DY;
+		D2 = D - DY;
+		for (int Y(Y1 + SY); Y != Y2; Y += SY) {
+			if (D > 0) {
+				D += D2;
+				X += SX;
+			} else
+				D += D1;
+			SetPixel(CDC, X, Y, color);
+		}
+	} else {
+		D1 = DY + DY;
+		D = D1 - DX;
+		D2 = D - DX;
+		for (int X(X1 + SX); X != X2; X += SX) {
+			if (D > 0) {
+				D += D2;
+				Y += SY;
+			} else
+				D += D1;
+			SetPixel(CDC, X, Y, color);
+		}
+	}
+	// обновляем окно графического вывода
+	InvalidateRect(hWndGDE, 0, 0);
 }
 
 /* рисует прямую по алгоритму Ву */
 void DrawBWoo(short X1, short Y1, short X2, short Y2) {
+	COLORREF color;
+	if (mouse_down == WM_LBUTTONDOWN)
+		color = fore_color;
+	else
+		color = back_color;
+	//Вычисление изменения координат
+	int DX = (X2 > X1) ? (X2 - X1) : (X1 - X2);
+	int DY = (Y2 > Y1) ? (Y2 - Y1) : (Y1 - Y2);
+	//Если линия параллельна одной из осей, рисуем обычную линию - заполняем все пикселы в ряд
+	if (DX == 0 || DY == 0)
+	{
+		DrawLine(X1, Y1, X2, Y2);
+		return;
+	}
+	//Для Х-линии (коэффициент наклона < 1)
+	if (DY < DX)
+	{
+		//Первая точка должна иметь меньшую координату Х
+		if (X2 < X1)
+		{
+			X2 += X1; X1 = X2 - X1; X2 -= X1;
+			Y2 += Y1; Y1 = Y2 - Y1; Y2 -= Y1;
+		}
+		//Относительное изменение координаты Y
+		float grad = (float)DY / DX;
+		//Промежуточная переменная для Y
+		float intery = Y1 + grad;
+		//Первая точка
+		// PutPixel(g, clr, x0, y0, 255);
+
+		//for (int X = X1 + 1; X < X2; X++)
+		//{
+		//	COLOR
+		//	//Верхняя точка
+		//	PutPixel(g, clr, x, IPart(intery), (int)(255 - FPart(intery) * 255));
+		//	//Нижняя точка
+		//	PutPixel(g, clr, x, IPart(intery) + 1, (int)(FPart(intery) * 255));
+		//	//Изменение координаты Y
+		//	intery += grad;
+		//}
+		////Последняя точка
+		//PutPixel(g, clr, x1, y1, 255);
+	}
 }
